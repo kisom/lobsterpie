@@ -3,6 +3,7 @@
 import os
 import sqlite3
 import sys
+import time
 
 import feedparser
 import requests
@@ -96,4 +97,7 @@ def update():
 def main():
     while True:
         update()
-        sleep(3600)
+        time.sleep(900)
+
+if '__main__' == __name__:
+    main()
