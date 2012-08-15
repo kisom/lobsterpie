@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>lobsterpie by kisom</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>lobsterpie</h1>
+        <p>tasty morsels of lobster news</p>
+
+        <p class="view"><a href="https://github.com/kisom/lobsterpie">View the Project on GitHub <small>kisom/lobsterpie</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kisom/lobsterpie/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kisom/lobsterpie/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kisom/lobsterpie">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>tasty morsels of lobster news</h2>
+
+<blockquote>
+<p>Lobster Pie is a bot, written in Python, that posts new stories from 
+lobste.rs to Twitter.</p>
+</blockquote>
+
+<p>Lobster Pie posts to the <a href="https://twitter.com/lobsterpie">@lobsternews</a>
+Twitter account.</p>
+
+<h2>Dependencies</h2>
+
+<pre><code>* feedparser
+* requests
+* python-twitter
+</code></pre>
+
+<pre><code>sudo pip install feedparser requests python-twitter
+</code></pre>
+
+<p>Please note that lobsterpie needs <code>python-twitter</code> and <em>not</em> <code>twitter</code>. 
+The two libraries have different interfaces, therefore the <code>twitter</code>
+package will not work; confusion arises when both are installed as both
+use the name <code>twitter</code>. You have been warned.</p>
+
+<h2>Environment</h2>
+
+<p>lobsterpie gets information from certain environment variables:</p>
+
+<ul>
+<li>
+<code>LB_TWITTER_CONSUMER_KEY</code> - twitter consumer key</li>
+<li>
+<code>LB_TWITTER_CONSUMER_SECRET</code> - twitter consumer secret</li>
+<li>
+<code>LB_TWITTER_ACCESS_KEY</code> - twitter access token</li>
+<li>
+<code>LB_TWITTER_ACCESS_SECRET</code> - twitter access secret</li>
+<li>
+<code>LB_DATABASE_PATH</code> - the path to the sqlite database used to store 
+previously posted stories.</li>
+</ul><p>As lobsterpie is the only user running on the application, I've just used
+Twitter's OAuth tool to pre-generate the requisite tokens and secrets.</p>
+
+<h2>Usage</h2>
+
+<ol>
+<li>You will first need to set up the environment. I do this with a script
+called <code>env.sh</code> that I source into the environment before running the bot.</li>
+<li>Create the database using <code>dbtool.py create</code>.</li>
+<li>Run the bot (it requires no arguments).</li>
+<li>If you have to shutdown the bot (i.e. to migrate it to another host),
+you can call <code>dbtool.py dump</code> to dump the database as a Python hash. This 
+has the benefit of allowing you to play with the entries and use them for 
+testing.</li>
+<li>A dumpfile can be restored with <code>dbtool.py restore</code>.</li>
+</ol><h2>License</h2>
+
+<p>lobsterpie is released under an ISC license:</p>
+
+<pre><code>THE ISC LICENSE:
+--------------------------------------------------------------------------
+
+the ISC license:
+Copyright (c) 2011, 2012 Kyle Isom &lt;kyle@tyrfingr.is&gt;
+
+Permission to use, copy, modify, and distribute this software for any
+purpose with or without fee is hereby granted, provided that the above 
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. 
+
+--------------------------------------------------------------------------
+</code></pre>
+
+<p>The license is available as 
+<a href="http://www.tyrfingr.is/licenses/LICENSE.ISC">plaintext</a>, as well.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li>lobsterpie fetches stories from <a href="https://lobste.rs/">lobste.rs</a>
+</li>
+<li>the stories are posted to <a href="https://www.twitter.com/lobsternews">@lobsternews</a>
+</li>
+<li>the <a href="https://bitbucket.org/kisom/lobsterpie/">source is on bitbucket</a>;
+if you'd like to contribute I'd prefer 
+<a href="www.tyrfingr.is/notes/notes_patchfiles.html">git patches</a>. pull requests via
+Github won't be accepted as that repo exists solely for the use of Github 
+Pages.</li>
+<li>the project has a <a href="https://kisom.github.com/lobsterpie/">github page</a>
+</li>
+<li>comments are welcome; my email is in the commit log.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kisom">kisom</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
