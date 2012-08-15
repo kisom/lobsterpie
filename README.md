@@ -7,15 +7,46 @@ Lobster Pie posts from the [@lobsternews](https://twitter.com/lobsterpie)
 Twitter account.
 
 
-## dependencies
+## Dependencies
     * feedparser
     * requests
     * python-twitter
+
+```
+sudo pip install feedparser requests python-twitter
+```
 
 Please note that lobsterpie needs `python-twitter` and *not* `twitter`. 
 The two libraries have different interfaces, therefore the `twitter`
 package will not work; confusion arises when both are installed as both
 use the name `twitter`. You have been warned.
+
+
+## Environment
+lobsterpie gets information from certain environment variables:
+
+* `LB_TWITTER_CONSUMER_KEY` - twitter consumer key
+* `LB_TWITTER_CONSUMER_SECRET` - twitter consumer secret
+* `LB_TWITTER_ACCESS_KEY` - twitter access token
+* `LB_TWITTER_ACCESS_SECRET` - twitter access secret
+* `LB_DATABASE_PATH` - the path to the sqlite database used to store 
+previously posted stories.
+
+As lobsterpie is the only user running on the application, I've just used
+Twitter's OAuth tool to pre-generate the requisite tokens and secrets.
+
+
+## Usage
+0. You will first need to set up the environment. I do this with a script
+called `env.sh` that I source into the environment before running the bot.
+0. Create the database using `dbtool.py create`.
+0. Run the bot (it requires no arguments).
+0. If you have to shutdown the bot (i.e. to migrate it to another host),
+you can call `dbtool.py dump` to dump the database as a Python hash. This 
+has the benefit of allowing you to play with the entries and use them for 
+testing.
+0. A dumpfile can be restored with `dbtool.py restore`.
+
 
 ## License
 lobsterpie is released under an ISC license:
