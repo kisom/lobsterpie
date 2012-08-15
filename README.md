@@ -71,10 +71,19 @@ lobsterpie is released under an ISC license:
     
     --------------------------------------------------------------------------
 
+The license is available as 
+[plaintext](http://www.tyrfingr.is/licenses/LICENSE.ISC), as well.
+
+
 ## Links
 * lobsterpie fetches stories from [lobste.rs](https://lobste.rs/)
 * the stories are posted to [@lobsternews](https://www.twitter.com/lobsternews)
-* the [source is on bitbucket](https://bitbucket.org/kisom/lobsterpie/)
+* the [source is on bitbucket](https://bitbucket.org/kisom/lobsterpie/);
+if you'd like to contribute I'd prefer 
+[git patches](www.tyrfingr.is/notes/notes_patchfiles.html). pull requests via
+Github won't be accepted as that repo exists solely for the use of Github 
+Pages.
+* the project has a [github page](https://kisom.github.com/lobsterpie/)
 * comments are welcome; my email is in the commit log.
 
 
