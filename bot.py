@@ -5,12 +5,11 @@ Fetch the latest stories from lobste.rs and post them to twitter.
 
 import os
 import sqlite3
-import sys
 import time
 
-#import feedparser
+import feedparser
 import requests
-#import twitter
+import twitter
 
 AUTH = {'consumer': {'key': os.getenv("LB_TWITTER_CONSUMER_KEY"),
                      'secret': os.getenv("LB_TWITTER_CONSUMER_SECRET")},
@@ -21,7 +20,8 @@ DB_PATH = os.getenv('LB_DATABASE_PATH')
 MAX_TITLE_LEN = 115
 NUM_STORIES = 5
 DELAY = 900                 # check every 15 minutes
-DEKAY_STEP = 300            # report every 5 minutes
+DELAY_STEP = 300            # report every 5 minutes
+
 
 def ellipses(title):
     """
@@ -78,13 +78,14 @@ def mark_posted(story):
     """
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    
+
     values = (story['guid'], story['title'], story['link'])
     cur.execute('insert into posted values (?, ?, ?)', values)
     did_update = cur.rowcount > 0
     cur.close()
     conn.commit()
     return did_update
+
 
 def twitter_auth():
     """
@@ -96,7 +97,7 @@ def twitter_auth():
                           consumer_secret=AUTH['consumer']['secret'],
                           access_token_key=AUTH['access']['token'],
                           access_token_secret=AUTH['access']['secret'])
-    except twitter.TwitterHTTPError as error:
+    except twitter.TwitterError as error:
         print '[!] exception authentication to twitter: %s' % (error, )
         return None
     if not api.VerifyCredentials():
@@ -125,7 +126,7 @@ def update():
     Fetch the latest stories, posting those that haven't been
     posted yet.
     """
-    for story in fetch_stories()[::-1]: # post earlier stories first
+    for story in fetch_stories()[::-1]:         # post earlier stories first
         print '[+] story link: %s' % (story['link'], ),
         if not postedp(story):
             if post_story(story):
