@@ -3,7 +3,7 @@
 > Lobster Pie is a bot, written in Python, that posts new stories from 
 > lobste.rs to Twitter.
 
-Lobster Pie posts from the [@lobsternews](https://twitter.com/lobsternews)
+Lobster Pie posts to the [@lobsternews](https://twitter.com/lobsternews)
 Twitter account.
 
 
@@ -83,7 +83,7 @@ if you'd like to contribute I'd prefer
 [git patches](www.tyrfingr.is/notes/notes_patchfiles.html). pull requests via
 Github won't be accepted as that repo exists solely for the use of Github 
 Pages.
-* the project has a [github page](https://kisom.github.com/lobsterpie/)
+* the project has a [github page](http://kisom.github.com/lobsterpie/)
 * comments are welcome; my email is in the commit log.
 
 
