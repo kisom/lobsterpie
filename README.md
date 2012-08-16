@@ -3,7 +3,7 @@
 > Lobster Pie is a bot, written in Python, that posts new stories from 
 > lobste.rs to Twitter.
 
-Lobster Pie posts from the [@lobsternews](https://twitter.com/lobsterpie)
+Lobster Pie posts from the [@lobsternews](https://twitter.com/lobsternews)
 Twitter account.
 
 
